@@ -15,4 +15,3 @@ A direct link to the download can be found at https://abrahams.dev
 ## Screenshots 📸
 ![Image of Main Screen](https://abrahams.dev/images/gallery/launchermain.png)
 ![Image of a search](https://abrahams.dev/images/gallery/jbsearch.png)
->>>>>>> 16b3d026a5c464106f924c32411de463043c5916
