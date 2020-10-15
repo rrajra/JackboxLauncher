@@ -194,6 +194,11 @@ input[type=number]:focus, textarea:focus {
 	cursor: pointer;
 	-webkit-user-select: none;
 }
+#pp7 {
+	text-align: center;
+	cursor: pointer;
+	-webkit-user-select: none;
+}
 #titleTop {
 	position: absolute;
 	left: 0;
@@ -251,6 +256,10 @@ input[type=number]:focus, textarea:focus {
 	text-align: center;
 }
 .JackBox6 {
+	width: 100%;
+	text-align: center;
+}
+.JackBox7 {
 	width: 100%;
 	text-align: center;
 }

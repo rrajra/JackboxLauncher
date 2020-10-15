@@ -11,6 +11,7 @@ var pack3 = remote.pack3
 var pack4 = remote.pack4
 var pack5 = remote.pack5
 var pack6 = remote.pack6
+var pack7 = remote.pack7
 
 document.getElementById('pp').addEventListener('click', hidePack1);
 document.getElementById('pp2').addEventListener('click', hidePack2);
@@ -18,6 +19,7 @@ document.getElementById('pp3').addEventListener('click', hidePack3);
 document.getElementById('pp4').addEventListener('click', hidePack4);
 document.getElementById('pp5').addEventListener('click', hidePack5);
 document.getElementById('pp6').addEventListener('click', hidePack6);
+document.getElementById('pp7').addEventListener('click', hidePack7);
 document.getElementById('home').addEventListener('click', toHome);
 document.getElementById('plus').addEventListener('click', settingsWindow);
 document.getElementById('myInput').addEventListener('keyup', search);
@@ -28,6 +30,7 @@ const wrapper3 = document.getElementById('b3');
 const wrapper4 = document.getElementById('b4');
 const wrapper5 = document.getElementById('b5');
 const wrapper6 = document.getElementById('b6');
+const wrapper7 = document.getElementById('b7');
 
 var ua = require('universal-analytics');
 var visitor = ua('G-KJYHEXLVH2');
@@ -101,7 +104,16 @@ wrapper3.addEventListener('click', (event) => {
     launchPP6();
     window.setTimeout(checkToQuit, 250);
   })
-
+  wrapper7.addEventListener('click', (event) => {
+    const isButton = event.target.nodeName === 'BUTTON';
+    if (!isButton) {
+      return;
+    }
+  
+    launchPP7();
+    window.setTimeout(checkToQuit, 250);
+  })
+  
   function checkToQuit() {
     if(quitOnLoad == true) {
         win.close();
@@ -164,6 +176,15 @@ function hidePack6() {
         toHide.style.display = "block"
     }
 }
+    function hidePack7() {
+        const toHide = document.getElementById('b7');
+        if(toHide.style.display == "block") {
+            toHide.style.display = "none"
+        }
+        else {
+            toHide.style.display = "block"
+        }
+    }
 
 function launchPP1() {
     window.location.href = "steam://run/250900"
@@ -182,6 +203,9 @@ function launchPP5() {
 }
 function launchPP6() {
     window.location.href = "steam://run/1005300"
+}
+function launchPP7() {
+    window.location.href = "steam://run/1211630"
 }
 function switch1() {
     quitOnLoad = document.getElementById("closeSwitch").checked;
@@ -245,6 +269,7 @@ function hideThings() {
             pack4 = parsed.jackpack4;
             pack5 = parsed.jackpack5;
             pack6 = parsed.jackpack6;
+            pack7 = parsed.jackpack7;
 
             console.log(pack1);
             console.log(parsed.jackpack1);
@@ -275,6 +300,10 @@ function hideThings() {
             if(pack6 == false) {
                 const localHideVar6 = document.getElementById('b6');
                 localHideVar6.style.display = "none";
+            }
+            if(pack7 == false) {
+                const localHideVar6 = document.getElementById('b7');
+                localHideVar7.style.display = "none";
             }
 })
 }
@@ -307,6 +336,9 @@ function runAndHide() {
 
             }
             if(parsed.pack6 == "true") {
+
+            }
+            if(parsed.pack7 == "true") {
 
             }
             })

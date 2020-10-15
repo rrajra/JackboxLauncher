@@ -11,6 +11,9 @@ const { parseJSON } = require('jquery');
 const { trackEvent } = require('./analytics');
 const { electron } = require('process');
 
+//Create settings menu first, then create the main window.
+//This should fix the refresh issue.
+
 const CHANNEL_NAME = 'main';
 
 var yesno;
@@ -25,6 +28,7 @@ var pack3;
 var pack4;
 var pack5;
 var pack6;
+var pack7;
 
 
 function createWindow () {0
@@ -54,22 +58,26 @@ function createWindow () {0
   // mainWindow.webContents.openDevTools()
 }
 
+//Opens window that allows user to select which packs
+//They own
 function createSecWindow () {0
   // Create the browser window.
   const secWindow = new BrowserWindow({
     width: 600,
-    height: 320,
+    height: 380,
     icon: path.join(__dirname, img_dir, 'frame.ico'),
     titleBarStyle: 'customButtonsOnHover',
     frame: false,
     backgroundColor: 'black',
     webPreferences: {
       nodeIntegration: true,
+      preload: path.join(__dirname, 'menuHandler.js'),
     }
   })
 
 
   secWindow.on('close', function() { //   <---- Catch close event
+    createWindow();
 });
 
   // and load the index.html of the app.
@@ -83,7 +91,6 @@ function createSecWindow () {0
 // initialization and is ready to create browser windows.
 // Some APIs can only be used after this event occurs.
 app.whenReady().then(() => {
-  createWindow()
 
   var file = jsonLocation + fileName;
 
@@ -92,6 +99,7 @@ app.whenReady().then(() => {
         console.log(yesno);
 
         if(yesno == "file") {
+            createWindow()
             console.log("Works");
             const fs = require('fs');
             var userData = fs.readFile(__dirname + '\\data' + "\\packData.json", 'utf8', function (err, data) {
@@ -102,6 +110,7 @@ app.whenReady().then(() => {
             pack4 = parsed.jackpack4;
             pack5 = parsed.jackpack5;
             pack6 = parsed.jackpack6;
+            pack7 = parsed.jackpack7;
             })
         }
         else {
@@ -126,5 +135,23 @@ app.on('window-all-closed', function () {
 // code. You can also put them in separate files and require them here.
 
 function continueSort() {
-  var contBtn = document.getElementById("");
+  var contBtn = document.getElementById("btnOn");
+  if(pack1 == false) {
+    document.getElementById('b1').style.display = 'none';
+  }
+  if(pack2 == false) {
+    document.getElementById('b2').style.display = 'none';
+  }
+  if(pack3 == false) {
+
+  }
+  if(pack4 == false) {
+
+  }
+  if(pack5 == false) {
+
+  }
+  if(pack6 == false) {
+
+  }
 }
