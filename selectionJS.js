@@ -11,6 +11,7 @@ document.getElementById('switchVal3').addEventListener('click', switch3)
 document.getElementById('switchVal4').addEventListener('click', switch4)
 document.getElementById('switchVal5').addEventListener('click', switch5)
 document.getElementById('switchVal6').addEventListener('click', switch6)
+document.getElementById('switchVal7').addEventListener('click', switch7)
 
 
 
@@ -20,6 +21,7 @@ var pack3 = false;
 var pack4 = false;
 var pack5 = false;
 var pack6 = false;
+var pack7 = false;
 var closeGame;
 
 
@@ -37,6 +39,7 @@ function saveSettings() {
         jackpack4: pack4,
         jackpack5: pack5,
         jackpack6: pack6,
+        jackpack7: pack7,
         closeonlaunch: closeGame
     }
     jetpack.write(__dirname + '\\data' + "\\packData.json", toSave);
@@ -59,4 +62,7 @@ function switch5() {
 }
 function switch6() {
     pack6 = document.getElementById("switchVal6").checked;  
+}
+function switch7() {
+    pack7 = document.getElementById("switchVal7").checked;  
 }

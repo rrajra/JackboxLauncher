@@ -26,6 +26,52 @@ header {
 	-webkit-app-region: drag;
 	position: -webkit-sticky;
 }
+#titleTop {
+	position: absolute;
+	left: 0;
+	padding-top: 5px;
+	padding-left: 5px;
+	color: #787878;
+	font-size: 1em;
+}
+.topOptions {
+	display: flex;
+	flex-direction: row-reverse;
+	justify-content: right;
+	justify-items: right;
+	padding-top: 15px;
+	padding-bottom: 15px;
+	background-color: #2D3640;
+	position: sticky;
+	top: 2em;
+	user-select: none;
+}
+.closee {
+	padding: 5px 15px 5px 15px;
+	-webkit-app-region: no-drag;
+	cursor: default;
+	user-select: none;
+}
+.closee:hover {
+	background-color: crimson ;
+}
+.closee:active {
+	background-color: darkred;
+}
+.minimizee {
+	user-select: none;
+}
+.minimizee:hover {
+	background-color: darkgrey;
+}
+.minimizee:active {
+	background-color: #606060;
+}
+.minimizee {
+	padding: 5px 15px 5px 15px;
+	-webkit-app-region: no-drag;
+	cursor: default;
+}
 body {
 	background-color: #1E242B;
 	font-family: Lato, Arial, Helvetica, sans-serif;
@@ -126,6 +172,9 @@ input[type=number]:focus, textarea:focus {
   padding-right: 5px;
   display: flex;
   flex-flow: row-reverse;
+  position: absolute;
+  bottom: 0;
+  right: 0;
 }
 #pack {
   color: antiquewhite;

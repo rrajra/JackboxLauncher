@@ -302,7 +302,7 @@ function hideThings() {
                 localHideVar6.style.display = "none";
             }
             if(pack7 == false) {
-                const localHideVar6 = document.getElementById('b7');
+                const localHideVar7 = document.getElementById('b7');
                 localHideVar7.style.display = "none";
             }
 })
