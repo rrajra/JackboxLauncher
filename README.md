@@ -17,5 +17,7 @@ Jackbox Launcher is designed to run out of the box. To run, unzip JackboxLaunche
 * ... And More!
 
 ## Screenshots 📸
+![View of app](https://thumbs.gfycat.com/ColorlessFarGroundhog-size_restricted.gif)
+![Search GIF](https://thumbs.gfycat.com/LastingSomberAfricanrockpython-size_restricted.gif)
 ![Image of Main Screen](https://abrahams.dev/images/gallery/launchermain.png)
 ![Image of a search](https://abrahams.dev/images/gallery/jbsearch.png)
