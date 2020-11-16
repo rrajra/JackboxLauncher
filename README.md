@@ -3,7 +3,7 @@
 A minimalistic yet powerful launcher for the Jackbox series.
 Combines HTML, CSS, and JavaScript elements built using the [electron framework](https://www.electronjs.org/).
 
-The Jackbox series have 7 independent packs with 5 games each. For casual players such as myself, it is hard to remember which pack contains a certain game. As a result, I created a simple but powerful launcher which allows users to search for their favorite game and easily launch it through the launcher. Users are also able to filter out packs based on which ones they own. 
+The Jackbox series has 7 independent packs with 5 games each. For casual players such as myself, it is hard to remember which pack contains a certain game. As a result, I created a simple but powerful launcher which allows users to search for their favorite game and easily launch it through the launcher. Users are also able to filter out packs based on which ones they own. 
 
 A direct link to the download can be found at https://abrahams.dev
 
