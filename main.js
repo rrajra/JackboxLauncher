@@ -6,24 +6,17 @@ const { exists } = require('fs-jetpack');
 const { fstat, appendFileSync, fsync } = require('fs');
 const { parseJSON } = require('jquery'); 
 
-//Yes, this app collects analytics. It does NOT collect user data.
-//It only collects anonymous data for me to improve the app.
-const { trackEvent } = require('./analytics');
-const { electron } = require('process');
-
-//Create settings menu first, then create the main window.
-//This should fix the refresh issue.
-
 const CHANNEL_NAME = 'main';
 
+// This bool is if a config file exists
 var yesno;
-var img_dir = '/images/';
 
+var img_dir = '/images/';
 var jsonLocation = __dirname + "\\data";
 var fileName = "\\packData.json"
 
-global.pack1 = false;
-var pack2 = false;;
+var pack1;
+var pack2;
 var pack3;
 var pack4;
 var pack5;
@@ -58,8 +51,8 @@ function createWindow () {0
   // mainWindow.webContents.openDevTools()
 }
 
-//Opens window that allows user to select which packs
-//They own
+// Opens window that allows user to select which packs
+// they own
 function createSecWindow () {0
   // Create the browser window.
   const secWindow = new BrowserWindow({
@@ -96,8 +89,9 @@ app.whenReady().then(() => {
 
         exists(file);
         yesno = exists(file);
-        console.log(yesno);
 
+        //If the config file exists, it'll load the data and set
+        //Whether or not user owns that pack
         if(yesno == "file") {
             createWindow()
             console.log("Works");
@@ -113,6 +107,7 @@ app.whenReady().then(() => {
             pack7 = parsed.jackpack7;
             })
         }
+        // If pack doesn't exist a pack selection screen will open up
         else {
             createSecWindow();
         }
@@ -133,25 +128,3 @@ app.on('window-all-closed', function () {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-
-function continueSort() {
-  var contBtn = document.getElementById("btnOn");
-  if(pack1 == false) {
-    document.getElementById('b1').style.display = 'none';
-  }
-  if(pack2 == false) {
-    document.getElementById('b2').style.display = 'none';
-  }
-  if(pack3 == false) {
-
-  }
-  if(pack4 == false) {
-
-  }
-  if(pack5 == false) {
-
-  }
-  if(pack6 == false) {
-
-  }
-}

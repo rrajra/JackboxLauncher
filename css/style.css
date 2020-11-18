@@ -312,7 +312,7 @@ input[type=number]:focus, textarea:focus {
 	padding-top: 10px;
 	padding-right: 10px;
 }
-.stickybois {
+.stickyMenu {
 	position: sticky;
 	position: -webkit-sticky;
 	top: 0;

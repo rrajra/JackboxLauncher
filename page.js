@@ -3,9 +3,6 @@ const { electron } = require('process');
 var win = remote.getCurrentWindow();
 const { BrowserWindow } = require('electron').remote
 
-const CHANNEL_NAME = 'main';
-const MESSAGE = 'ping';
-
 var pack2 = remote.pack2
 var pack3 = remote.pack3
 var pack4 = remote.pack4
@@ -32,23 +29,19 @@ const wrapper5 = document.getElementById('b5');
 const wrapper6 = document.getElementById('b6');
 const wrapper7 = document.getElementById('b7');
 
-var ua = require('universal-analytics');
-var visitor = ua('G-KJYHEXLVH2');
-
-localStorage.setItem('myCat', 'Tom');
-localStorage.setItem("lastname", "Smith");
-myStorage = window.localStorage;
-
+// If true, JBL will exit after launching selected pack.
 var quitOnLoad = false;
 
 document.getElementById('closeSwitch').addEventListener('click', switch1)
 
+// Scrolls to top of page 
 function toHome() {
     var window = remote.getCurrentWindow()
     var title = document.getElementById('title');
     title.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
+//#region Adding event listeners to buttons
 wrapper.addEventListener('click', (event) => {
   const isButton = event.target.nodeName === 'BUTTON';
   if (!isButton) {
@@ -113,6 +106,7 @@ wrapper3.addEventListener('click', (event) => {
     launchPP7();
     window.setTimeout(checkToQuit, 250);
   })
+  //#endregion
   
   function checkToQuit() {
     if(quitOnLoad == true) {
@@ -120,8 +114,8 @@ wrapper3.addEventListener('click', (event) => {
     }
   }
 
+//#region Hide packs
 function hidePack1() {
-    console.log("hid pack1")
     const toHide = document.getElementById('b1');
     if(toHide.style.display == "block") {
         toHide.style.display = "none"
@@ -185,6 +179,7 @@ function hidePack6() {
             toHide.style.display = "block"
         }
     }
+    //#endregion
 
 function launchPP1() {
     window.location.href = "steam://run/250900"
@@ -218,6 +213,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 var newWindow = null;
 
+// Opens settings window
+// Allows users to select / deselect packs
 function settingsWindow() {
         newWindow = new BrowserWindow( {
         height: 485,
@@ -271,15 +268,9 @@ function hideThings() {
             pack6 = parsed.jackpack6;
             pack7 = parsed.jackpack7;
 
-            console.log(pack1);
-            console.log(parsed.jackpack1);
-
             if(pack1 == false) {
-                console.log("ahhh running cuz false")
                 const localHideVar1 = document.getElementById('b1');
-                console.log(localHideVar1);
                 localHideVar1.style.display = "none";
-                console.log("ahhh running cuz false")
             }
             if(pack2 == false) {
                 const localHideVar2 = document.getElementById('b2');
@@ -306,41 +297,4 @@ function hideThings() {
                 localHideVar7.style.display = "none";
             }
 })
-}
-
-function runAndHide() {
-    var file = ".//data" + "packData.json";
-
-        exists(file);
-        yesno = exists(file);
-        console.log(yesno);
-
-        if(yesno == "file") {
-            console.log("Works");
-            const fs = require('fs');
-            var userData = fs.readFile(__dirname + '\\data' + "\\packData.json", 'utf8', function (err, data) {
-            var parsed = JSON.parse(data);
-            if(parsed.pack1 == "true") {
-                
-            }
-            if(parsed.pack2 == "true") {
-
-            }
-            if(parsed.pack3 == "true") {
-
-            }
-            if(parsed.pack4 == "true") {
-
-            }
-            if(parsed.pack5 == "true") {
-
-            }
-            if(parsed.pack6 == "true") {
-
-            }
-            if(parsed.pack7 == "true") {
-
-            }
-            })
-        }
 }

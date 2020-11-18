@@ -1,13 +1,13 @@
 const $ = require('jquery');
 
-var windy = remote.getCurrentWindow();
+var mainWindow = remote.getCurrentWindow();
 
 
 $('#minimize').click(function() {
 
-	windy.minimize();
+	mainWindow.minimize();
 });
 
 $('#close').click(function() {
-	windy.close();
+	mainWindow.close();
 });

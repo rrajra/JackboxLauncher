@@ -13,8 +13,6 @@ document.getElementById('switchVal5').addEventListener('click', switch5)
 document.getElementById('switchVal6').addEventListener('click', switch6)
 document.getElementById('switchVal7').addEventListener('click', switch7)
 
-
-
 var pack1 = false;
 var pack2 = false;
 var pack3 = false;
@@ -24,13 +22,13 @@ var pack6 = false;
 var pack7 = false;
 var closeGame;
 
-
 function contOn() {
     saveSettings();
     window.setTimeout(close, 250);
     hideThings();
 }
 
+//Gets packdata and saves it to a JSON file.
 function saveSettings() {
     var toSave = {
         jackpack1: pack1, 

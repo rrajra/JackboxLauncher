@@ -6,5 +6,3 @@
 // process.
 const { ipcRenderer } = require('electron');
 require('typeface-lato');
-
-ipcRenderer.send('asynchronous-message', 'hello');
